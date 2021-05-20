@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>VISUALIZADOR DE VISITAS</title>
+        </h:head>
+
+        <h:body>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+                <p:panel header="VISITAS AGENDADAS">         
+                    <p:separator>
+                        <div class="card">
+                            <p:dataTable var="CITA" value="#{visualizarBean.cita}" reflow="true" rows="10" paginator="true">
+                                emptyMessage="El código del registro no existe">
+
+                                <p:column headerText="Id Cita">
+                                    <h:outputText value="#{CITA.idC}" />
+                                </p:column>
+                                <p:column headerText="Inconveniente">
+                                    <h:outputText value="#{CITA.inconveniente}" />
+                                </p:column>
+
+                                <p:column headerText="Id Tecnico">
+                                    <h:outputText value="#{CITA.idT}" />
+                                </p:column>
+
+                                <p:column headerText="Dia">
+                                    <h:outputText value="#{CITA.dia}" />
+                                </p:column>
+
+                                <p:column headerText="Hora">
+                                    <h:outputText value="#{CITA.hora}" />
+                                </p:column>
+
+                                <p:column headerText="Cliente">
+                                    <h:outputText value="#{CITA.cliente}" />
+                                </p:column>
+
+                                <p:column headerText="Telefono">
+                                    <h:outputText value="#{CITA.telefono}" />
+                                </p:column>
+
+                                <p:column headerText="Direccion">
+                                    <h:outputText value="#{CITA.direccion}" />
+                                </p:column>
+
+                                <p:column headerText="Vivienda">
+                                    <h:outputText value="#{CITA.vivienda}" />
+                                </p:column>
+
+                            </p:dataTable>
+
+                        </div>
+                    </p:separator> 
+                    <br>
+                        <p:separator>
+                            <p:commandButton value="VOLVER" action="index" />
+                            <p:commandButton value="MODIFICAR VISITA" action="#{visualizarBean.update()}" />
+                            <p:commandButton value="ELIMINAR VISITA" action="#{visualizarBean.eliminar()}" />
+                            <p:commandButton value="GENERAR REPORTE" action="#{visualizadorBean.guardar()}" />
+
+                        </p:separator>
+                    </br>
+                </p:panel>            
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
+

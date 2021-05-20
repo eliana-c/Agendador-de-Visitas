@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>AGENDADOR DE VISITAS</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+                <h:panelGroup style="display:block; text-align:center">
+                <p:panel header="BIENVENIDOS AGENDADOR DE VISITAS">                   
+                    <p:separator>
+                        <p:commandButton value="AGENDAR VISITA" action="#{inicioBean.agendardor()}" />
+                    </p:separator> 
+                    <p:separator>
+                        <p:commandButton value="VISUALIZAR VISITA" action="#{visualizarBean.visualizar()}" />
+                     </p:separator>
+                     
+                     <p:separator>
+                          <img src="C:\Users\elian\Desktop\AgendadorPrime\image\visita.png" width="300" height="300" alt="BenKo?s Art" />
+
+                     </p:separator>
+                     <p:separator>
+                        
+                          <div align="center">
+                          <img src="C:\Users\elian\Desktop\AgendadorPrime\image\ucentral.png" width="50" height="50" alt="BenKo?s Art" />
+                           Universidad Central - Eliana J. Acosta Lozano
+
+                        </div>
+                         <div align="center">
+                             Ingeniería de sistemas - Tutor: Ing. Giovanny Briceño
+                         </div>
+
+                     </p:separator>
+                     
+                </p:panel>    
+                    </h:panelGroup>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
