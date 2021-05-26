@@ -29,8 +29,8 @@ public class visualizarBean implements Serializable {
     private String mensaje;
   
     
-    private List<Cita> cita;
-    private List<Cita> cita1 = new ArrayList<>();
+    private Cita cita;
+    private Cita cita1 = new Cita();
 
     public int getIdC() {
         return IdC;
@@ -112,19 +112,19 @@ public class visualizarBean implements Serializable {
         this.mensaje = mensaje;
     }
 
-    public List<Cita> getCita() {
+    public Cita getCita() {
         return cita;
     }
 
-    public void setCita(List<Cita> cita) {
+    public void setCita(Cita cita) {
         this.cita = cita;
     }
 
-    public List<Cita> getCita1() {
+    public Cita getCita1() {
         return cita1;
     }
 
-    public void setCita1(List<Cita> cita1) {
+    public void setCita1(Cita cita1) {
         this.cita1 = cita1;
     }
 

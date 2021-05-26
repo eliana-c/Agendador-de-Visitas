@@ -20,7 +20,8 @@ public class OperVisita implements Operaciones<Cita> {
     public boolean agendar(Cita cita){
         Conexiones c = new Conexiones();
          boolean respuesta = false;
-       if( cita == null){
+       if( cita == null || cita.getInconveniente() == "" || cita.getIdT() == "" || cita.getDia() == "" || cita.getHora() == "" || 
+           cita.getCliente()== "" || cita.getTelefono() == 0 || cita.getDireccion() == "" || cita.getVivienda() ==""){
            respuesta = false;
        }else{
             
@@ -76,7 +77,8 @@ public class OperVisita implements Operaciones<Cita> {
     public int eliminarCita(Cita cita) {
         Conexiones c = new Conexiones();
         Cita cita1 = cita;
-        String sql = "DELETE FROM citas WHERE IdC = ?";
+        if(cita != null && cita.getIdC() != 0 && 0 != cita.getIdC()){
+            String sql = "DELETE FROM citas WHERE IdC = ?";
         try {
             Connection cActiva = c.conectarse();
             PreparedStatement ps = cActiva.prepareStatement(sql);
@@ -87,6 +89,9 @@ public class OperVisita implements Operaciones<Cita> {
             return respuesta;
         } catch (SQLException ex) {
             Logger.getLogger(OperVisita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+        
         }
         return 0;
     }
@@ -142,7 +147,9 @@ public class OperVisita implements Operaciones<Cita> {
     public int actualizarCita(Cita dato) {
         Conexiones c = new Conexiones();
         Connection cActiva = c.conectarse();
-        if (cActiva != null) {
+        
+        if (cActiva != null && dato != null && dato.getInconveniente() != "" && dato.getIdT() != "" && dato.getDia() != "" && dato.getHora() != "" &&
+           dato.getCliente()!= "" && dato.getTelefono() != 0 && dato.getDireccion() != "" && dato.getVivienda() !="") {
             try {
                 String sql = "update citas set Inconveniente = ?, IdT = ?, Dia = ?, Hora = ?, Cliente = ?, Telefono = ?, Direccion = ?, Vivienda = ? where IdC = ?";
                 PreparedStatement ps = cActiva.prepareStatement(sql);
@@ -238,11 +245,12 @@ public class OperVisita implements Operaciones<Cita> {
     }
 
     @Override
-    public List<Cita> consultar(int IdC) {
+    public Cita consultar(int IdC) {
         Conexiones c = new Conexiones();
         Connection cActiva = c.conectarse();
-        List<Cita> datos = new ArrayList<>();
-        if (cActiva != null) {
+        Cita datos = new  Cita();
+        datos = null;
+        if (cActiva != null && IdC != 0) {
             try {
                 String sql = "select * from citas where IdC = ?";
                 PreparedStatement ps = cActiva.prepareStatement(sql);
@@ -260,7 +268,7 @@ public class OperVisita implements Operaciones<Cita> {
                     e.setDireccion(rs.getString("Direccion"));
                     e.setVivienda(rs.getString("Vivienda"));
 
-                    datos.add(e);
+                    
                 }
 
             } catch (SQLException ex) {

@@ -19,25 +19,7 @@ import static org.junit.Assert.*;
  */
 public class ConexionesIT {
     
-    public ConexionesIT() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+   
     /**
      * Test of conectarse method, of class Conexiones.
      */

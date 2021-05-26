@@ -18,5 +18,5 @@ public interface Operaciones<Cita>
     public Cita consultarCita(Cita cita);
     public int actualizarCita(Cita cita);
     public int eliminarCita(Cita cita);
-    public List<Cita> consultar(int IdC);
+    public Cita consultar(int IdC);
 }

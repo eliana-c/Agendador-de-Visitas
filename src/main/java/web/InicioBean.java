@@ -30,7 +30,7 @@ public class InicioBean implements Serializable {
     private String Vivienda;
     private String mensaje;
 
-    private List<Cita> cita;
+    private Cita cita;
     private List<Cita> cita1 = new ArrayList<>();
 
     public int getIdC() {
@@ -113,11 +113,11 @@ public class InicioBean implements Serializable {
         this.mensaje = mensaje;
     }
 
-    public List<Cita> getCita() {
+    public Cita getCita() {
         return cita;
     }
 
-    public void setCita(List<Cita> cita) {
+    public void setCita(Cita cita) {
         this.cita = cita;
     }
 
@@ -131,7 +131,7 @@ public class InicioBean implements Serializable {
 
     public InicioBean() {
         OperVisita oper = new OperVisita();
-        this.cita = oper.consultar();
+        this.cita = oper.consultar(IdC);
     }
     
      public void guardar() {
@@ -194,7 +194,7 @@ public class InicioBean implements Serializable {
     }
     public void consultaId()
     {
-        cita1 = cita;
+        Cita cita;
         OperVisita oper = new OperVisita();
         Cita e = new Cita();       
         e.setIdC(IdC);
