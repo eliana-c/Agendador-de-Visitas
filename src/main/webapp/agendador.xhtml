@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+    <html>
+        <h:head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>GESTOR DE VISITAS</title>
+        </h:head>
+        <h:body>
+            <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+                <p:panel header="GESTOR DE VISITAS">
+                    <p:separator>
+                                <span class="ui-float-label">
+                                    <p:inputText id="IdC" value="#{inicioBean.idC}"/>
+                                    <p:outputLabel for="@previous" value="Identificador de Visita"/>
+                                    <p:commandButton value="BUSCAR" action="#{inicioBean.consultaId()}"/>  
+                                </span>
+                             </p:separator> 
+                <h:panelGroup  style="display:block; text-center">
+                    <h:panelGrid   columns="2" width="500" >
+                        <p:panel header="DATOS TÉCNICO">   
+
+                            <span class="ui-float-label">
+                                <p:inputText id="Inconveniente" value="#{inicioBean.inconveniente}"/>
+                                <p:outputLabel for="@previous" value="Desc. Inconveniente"/>
+                            </span>
+
+                            <br>
+                                <p:selectOneMenu id="IdT" value="#{inicioBean.idT}" label="Técnicos disponibles">
+                                    <f:selectItem itemLabel="133 Jose Hernandez" itemValue="13 Jose Hernandez"/>
+                                    <f:selectItem itemLabel="258 Maria Gonzalez" itemValue="258 Maria Gonzalez"/>
+                                    <f:selectItem itemLabel="596 Fernanda Ramirez" itemValue="596 Daniela Ramirez"/>
+                                    <f:selectItem itemLabel="856 Daniel Lozano" itemValue="856 Daniel Lozano"/>
+                                    <f:selectItem itemLabel="781 Paola Gutierrez" itemValue="781 Paola Gutierrez"/>
+                                </p:selectOneMenu>
+                            </br>
+                            <br>
+                                <p:selectOneMenu id="Dia" value="#{inicioBean.dia}" label="Día de la visita">
+                                    <f:selectItem itemLabel="Lunes" itemValue="Lunes"/>
+                                    <f:selectItem itemLabel="Martes" itemValue="Martes"/>
+                                    <f:selectItem itemLabel="Miercoles" itemValue="Miercoles"/>
+                                    <f:selectItem itemLabel="Jueves" itemValue="Jueves"/>
+                                    <f:selectItem itemLabel="Viernes" itemValue="Viernes"/>
+                                </p:selectOneMenu>
+                            </br>
+                            <br>
+                                <p:selectOneMenu id="Hora" value="#{inicioBean.hora}" label="Hora de la visita">
+                                    <f:selectItem itemLabel="8:00 - 10:00" itemValue="8:00 - 10:00"/>
+                                    <f:selectItem itemLabel="10:00 - 12:00" itemValue="10:00 - 12:00"/>
+                                    <f:selectItem itemLabel="12:00 - 14:00" itemValue="12:00 - 14:00"/>
+                                    <f:selectItem itemLabel="14:00 - 16:00" itemValue="14:00 - 16:00"/>
+                                    <f:selectItem itemLabel="16:00 - 18:00" itemValue="16:00 - 18:00"/>
+                                </p:selectOneMenu>
+                            </br>
+                        </p:panel>
+                        <p:panel header="DATOS CLIENTE">  
+                            <br>
+                                <span class="ui-float-label">
+                                    <p:inputText id="Cliente" value="#{inicioBean.cliente}"/>
+                                    <p:outputLabel for="@previous" value="Nombre y Apellido"/>
+                                </span>  
+                            </br>
+                            
+                                <span class="ui-float-label">
+                                    <p:inputText id="Telefono" value="#{inicioBean.telefono}"/>
+                                    <p:outputLabel for="@previous" value="Telefono"/>
+                                </span>  
+                            
+                            <br>
+                                <span class="ui-float-label">
+                                    <p:inputText id="Direccion" value="#{inicioBean.direccion}"/>
+                                    <p:outputLabel for="@previous" value="Direccion"/>
+                                </span>  
+                            </br>
+                            
+                            <p:selectOneMenu id="Vivienda" value="#{inicioBean.vivienda}" label="Tipo de vivienda">
+                                    <f:selectItem itemLabel="Casa" itemValue="Casa"/>
+                                    <f:selectItem itemLabel="Apartamento" itemValue="Apartamento"/>
+                                    <f:selectItem itemLabel="Empresa" itemValue="Empresa"/>
+                                </p:selectOneMenu> 
+                        </p:panel>
+                        
+                    </h:panelGrid>
+                    <br>
+                        <p:separator>   
+                            <p:commandButton value="VOLVER" action="index"/>
+                            <p:commandButton value="ELIMINAR VISITA" action="#{inicioBean.eliminar()}"/>
+                            <p:commandButton value="GUARDAR VISITA" action="#{inicioBean.guardar()}"/>
+                </p:separator>
+                            </br>
+                </h:panelGroup>
+                     </p:panel>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
