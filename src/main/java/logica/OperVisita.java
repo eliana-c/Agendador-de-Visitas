@@ -19,7 +19,12 @@ public class OperVisita implements Operaciones<Cita> {
     @Override
     public boolean agendar(Cita cita){
         Conexiones c = new Conexiones();
-        boolean respuesta = false;
+         boolean respuesta = false;
+       if( cita == null){
+           respuesta = false;
+       }else{
+            
+       
         String dia = "";
             try {
                 Connection cActiva = c.conectarse();
@@ -61,8 +66,10 @@ public class OperVisita implements Operaciones<Cita> {
                 respuesta = true;
             } catch (SQLException ex) {
                 Logger.getLogger(OperVisita.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-        return respuesta;
+            }  
+           
+    }
+       return respuesta;
     }
 
     @Override
